@@ -45,7 +45,6 @@ class MemberServiceTest {
         //when
         memberService.join(member1);
         try{
-
             memberService.join(member2); //예외 발생
         }catch (IllegalStateException e){
             return;
