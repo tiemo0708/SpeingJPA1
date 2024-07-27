@@ -19,7 +19,7 @@ public class ItemRepository {
             em.merge(item);
         }
     }
-    public Item findByOne(Long id){
+    public Item findOne(Long id){
         return em.find(Item.class, id);
     }
     public List<Item> findAll(){
