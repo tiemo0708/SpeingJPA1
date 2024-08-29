@@ -39,6 +39,17 @@ public class OrderSimpleApiController {
                 .map(SimpleOrderDto::new)
                 .collect(toList());
     }
+
+    @GetMapping("/api/v3/simple-orders")
+    //ORDER 두개
+    //N+1 ->1+회원 N, 베송 N
+    public List<SimpleOrderDto> ordersV3(){
+        List<Order> orders = orderRepository.fimdAllwitMemberDelivery();
+        return orders.stream()
+                .map(o-> new SimpleOrderDto(o))
+                .collect(Collectors.toList());
+    }
+
     @Data
     static class SimpleOrderDto{
      private Long orderId;
